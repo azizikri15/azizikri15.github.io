@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
+    <meta name="google-signin-client_id" content="437032392134-4db5g2adq3l29898k3gpmpbfaa9jalnl.apps.googleusercontent.com">
     <meta name="author" content="">
 
     <title>Google Play Developer API - Dashboard</title>
@@ -87,8 +88,8 @@
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+                        <i class="fa fa-bars"></i>
+                    </button>
 
                     <!-- Topbar Search -->
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -96,8 +97,8 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -117,8 +118,8 @@
                                         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -145,7 +146,8 @@
                                     </div>
                                     <div>
                                         <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A user named Zikri has been given a new Review</span>
+                                        <span class="font-weight-bold">A user named Zikri has been given a new
+                                            Review</span>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -177,8 +179,8 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="name"></span>
+                                <img class="img-profile rounded-circle" id="pic">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -187,6 +189,7 @@
                                 </a>
                             </div>
                         </li>
+
 
                     </ul>
 
@@ -209,7 +212,8 @@
                                 <li class="page-item disabled">
                                     <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
                                 </li>
-                                <li class="page-item disabled"><a class="page-link text-dark" href="#">Page 1 of 7</a></li>
+                                <li class="page-item disabled"><a class="page-link text-dark" href="#">Page 1 of 7</a>
+                                </li>
                                 <li class="page-item">
                                     <a class="page-link" href="#">Next</a>
                                 </li>
@@ -271,17 +275,26 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-danger" href="index.html">Logout</a>
+                    <a href="#" class="btn btn-danger" onclick="signOut();">Sign out</a>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function() {
+                window.location = 'index.html'
+                console.log('User signed out.');
+            });
+        }
+    </script>
     <!-- Reply Modal -->
     <div class="modal fade" id="add_items" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -289,8 +302,8 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Add Reply to Review</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-        </button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form action="submit" method="post">
@@ -355,6 +368,8 @@
             </div>
         </div>
     </div>
+
+    <div class="g-signin2" data-onsuccess="onSignInReview" data-theme="dark" display="none"></div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -371,6 +386,12 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+    <!-- Google Sign In -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="js/googlesignin.js"></script>
+
+
 
 </body>
 
