@@ -19,6 +19,12 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+    <style>
+        .g-signin2 {
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -290,7 +296,7 @@
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
             auth2.signOut().then(function() {
-                window.location = 'index.html'
+                window.location.replace("http://zikriapi.000webhostapp.com/")
                 console.log('User signed out.');
             });
         }
@@ -370,10 +376,10 @@
     </div>
 
     <div class="g-signin2" data-onsuccess="onSignInReview" data-theme="dark" display="none"></div>
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 

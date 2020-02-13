@@ -18,6 +18,13 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <style>
+        .g-signin2 {
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -335,7 +342,7 @@
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
             auth2.signOut().then(function() {
-                window.location = 'index.html'
+                window.location.replace("http://zikriapi.000webhostapp.com/")
                 console.log('User signed out.');
             });
         }
