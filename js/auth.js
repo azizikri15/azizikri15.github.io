@@ -11,7 +11,7 @@ function onSignIn(googleUser) {
     const profile = googleUser.getBasicProfile();
     window.location.replace("http://zikriapi.000webhostapp.com/review.html");
     $("#pic").attr('src', profile.getImageUrl());
-    $("#name").text(profile.getName());
+    $("#name"). text(profile.getName());
     $("#email").text(profile.getEmail());
     $("#id").text(profile.getId());
     $("#user").show();
@@ -21,11 +21,11 @@ function onSignIn(googleUser) {
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    console.log(`Email: ${profile.getEmail()}`); // This is null if the 'email' scope is not present.
 }
 
 function onSignInReview(googleUser) {
     const profile = googleUser.getBasicProfile();
-    // window.location.replace("http://zikriapi.000webhostapp.com/review.html");
     $("#pic").attr('src', profile.getImageUrl());
     $("#name").text(profile.getName());
     $("#email").text(profile.getEmail());
