@@ -1,0 +1,25 @@
+.shadow {
+    box-shadow: 0 .1rem .5rem rgba(0, 0, 0, 0.548) !important;
+}
+
+.container {
+    width: 900px;
+}
+
+.image-header {
+    width: 50px;
+}
+
+.image-main {
+    width: 180px;
+}
+
+.display-4 {
+    font-size: 40px;
+    line-height: 0px!important;
+}
+
+.margin-top {
+    margin-top: 90px!important;
+    width: 800px;
+}
